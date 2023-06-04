@@ -1,3 +1,4 @@
+import './App.css';
 //1.识别常规的变量
 //2.原生js方法调用
 const otto = "电棍";
@@ -19,6 +20,10 @@ const getHtag = (type) => {
         return <h3>大标签</h3>
     }
 }
+// const style = {
+//     color:'#c60',
+//     fontSize:'30px'
+// }
 function App() {
     return (
     <div className="App">
@@ -35,7 +40,7 @@ function App() {
         </ul>
         {flag ? (
             <div>
-            <span> 欧西给 </span>
+                    <span className={1 && 'active'}> 欧西给 </span>
             </div>
             ) : null}
             {true && <span>这是个标签</span>}
