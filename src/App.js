@@ -1,52 +1,27 @@
-import './App.css';
-//1.识别常规的变量
-//2.原生js方法调用
-const otto = "电棍";
-const getName = () => {
-    return "欧内的手好汉";
-};
-const flag = 1;
-const songs = [
-    {id: 1,name: "欧内的手"},
-    {id: 2,name: "奥丽安费"},
-    {id: 3,name: "尊尼获加"},
-];
-const getHtag = (type) => {
-    if (type === 1) {
-        return <h1>小标签</h1>
-    } else if (type === 2) {
-        return <h2>中标签</h2>
-    } else if (type === 3) {
-        return <h3>大标签</h3>
-    }
-}
-// const style = {
-//     color:'#c60',
-//     fontSize:'30px'
-// }
-function App() {
-    return (
-    <div className="App">
-        {otto}
-        <br></br>
-        {getName()}
-        <br></br>
-        {flag ? "可以的" : "铸币吧"}
-        <br></br>
-        <ul>
-            {songs.map((song) => (
-            <li key={song.id}> {song.name} </li>
-            ))}
-        </ul>
-        {flag ? (
-            <div>
-                    <span className={1 && 'active'}> 欧西给 </span>
-            </div>
-            ) : null}
-            {true && <span>这是个标签</span>}
-            {getHtag(3)}
-    </div>
-    );
-}
+import React, { createRef } from "react";
 
-export default App;
+class Input extends React.Component{
+    msgRef = createRef()
+    getValue=()=>{
+        console.log(this.msgRef.current.value)
+    }
+    render(){
+        return(
+            <div>
+                <input
+                type="text"
+                ref={this.msgRef}
+                />
+                <button onClick={this.getValue}>获取输入框的值</button>
+            </div>
+        )}
+}
+function App(){
+    return(
+        <>
+        <div/>
+        <Input/>
+        </>
+    )
+}
+export default App
